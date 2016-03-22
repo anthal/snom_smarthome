@@ -1,0 +1,1 @@
+# snom_smarthome

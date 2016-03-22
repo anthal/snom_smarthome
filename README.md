@@ -20,8 +20,9 @@ Install
 -------
 
 **On a Raspberry Pi:**
-1. Install image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ 
-2. Install webserver like *lighttpd* 
+
+ 1. Install image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ 
+ 2. Install webserver like *lighttpd* 
 3. Download icons from openhab (http://www.openhab.org/getting-started/downloads.html => "Runtime core", directory *webapps\images\*) and copy to directory */var/www/icons/* 
 4. Copy the files from this repository in a user directory like */home/pi/python/snom.io/*  
 5. On crontab:
@@ -30,8 +31,8 @@ Install
 0 * * * * /home/pi/python/snom/get_rss.sh
 ```
 
-
 ** On snom phone **
+
 6. WEB GUI: "Function Keys" -key like "SNOM/CLOUD" / Type: "Action URL": "http://<IP addr. of Rasperry Pi>:8083"
  
 

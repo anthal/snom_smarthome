@@ -1,5 +1,3 @@
-# snom_smarthome
-
 Smart Home Menu for snom phones
 ===============================
 

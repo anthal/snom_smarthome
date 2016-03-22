@@ -10,6 +10,6 @@ Scope of menu
 * HUE lamp switching
 * Room overview
 * Show webcam pictures
-* Weather infos (now: Berlin)
-* RSS feed new (now: www.heise.de)
+* Weather infos (currently: Berlin)
+* RSS feed new (currently: www.heise.de)
 * State of Raspberry Pi (GPU temperature, flash size, RAM size)

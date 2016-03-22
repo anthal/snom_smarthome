@@ -17,4 +17,8 @@ Scope of menu
 Install
 -------
 
-# Download icons from openhab (https://github.com/openhab/openhab) and copy to directory *icon/*
+* Use a Raspberry Pi
+* Install image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ on Raspberry Pi
+* Download icons from openhab (http://www.openhab.org/getting-started/downloads.html => "Runtime core") and copy to directory *icon/*
+* Install webserver like *lighttpd* on Raspberry Pi
+* 

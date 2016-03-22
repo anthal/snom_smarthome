@@ -13,3 +13,8 @@ Scope of menu
 * Weather infos (currently: Berlin)
 * RSS feed new (currently: www.heise.de)
 * State of Raspberry Pi (GPU temperature, flash size, RAM size)
+
+Install
+-------
+
+# Download icons from openhab (https://github.com/openhab/openhab) and copy to directory *icon/*

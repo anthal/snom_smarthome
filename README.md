@@ -5,7 +5,7 @@ Python code for snom.io phone D375 that was shown at the CeBit 2016
 
 Scope of menu
 -------------
-* States of Homematic heter control (actual temperature, set temperature, valve state, battery state, mode)
+* States of Homematic heater control (actual temperature, set temperature, valve state, battery state, mode)
 * States of Homematic plug (on/off, power, voltage, current, frequency)
 * Switching of Homematic plug
 * State of Homematic window contact

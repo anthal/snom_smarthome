@@ -31,7 +31,7 @@ Install
 ```
 
 **On snom phone:**
- 1. WEB GUI: "Function Keys" -key like "SNOM/CLOUD" / Type: "Action URL": "http://IP_addr_of_Rasperry_Pi:8083"
+ 1. WEB GUI: "Function Keys" -key like "SNOM/CLOUD" / Type: "Action URL": "[http://IP_addr_of_Rasperry_Pi]:8083"
  
 
 

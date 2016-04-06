@@ -12,9 +12,23 @@ Scope of menu
 * HUE lamp switching
 * Room overview
 * Show webcam pictures
-* Weather infos (currently: Berlin)
+* Weather infos (currently: Berlin, since middle March is the Yahoo service not available)
 * RSS feed new (currently: www.heise.de)
 * State of Raspberry Pi (GPU temperature, flash size, RAM size)
+
+
+Required hardware
+-----------------
+* snom io phone (recommend: snom D375)
+* Raspberry Pi
+* Philips Hue bridge with 3 RGB lamps
+* Homematic Central Control Unit like CCU2 with:
+** Homematic Window Sensor like HM-Sec-SCo)
+** Homematic Radiator Thermostat (HM-CC-RT-DN)
+** Homematic Switch Actuator with power metering (HM-ES-PWSw1-Pl)
+** Homematic Temperature/Humidity Sensor like HM-WDS10-TH-O
+* IP-Webcam and/or Raspberry Pi camera
+
 
 Install
 -------

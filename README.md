@@ -23,10 +23,10 @@ Required hardware
 * Raspberry Pi
 * Philips Hue bridge with 3 RGB lamps
 * Homematic Central Control Unit like CCU2 with:
-** Homematic Window Sensor like HM-Sec-SCo)
-** Homematic Radiator Thermostat (HM-CC-RT-DN)
-** Homematic Switch Actuator with power metering (HM-ES-PWSw1-Pl)
-** Homematic Temperature/Humidity Sensor like HM-WDS10-TH-O
+ * Homematic Window Sensor like HM-Sec-SCo)
+ * Homematic Radiator Thermostat (HM-CC-RT-DN)
+ * Homematic Switch Actuator with power metering (HM-ES-PWSw1-Pl)
+ * Homematic Temperature/Humidity Sensor like HM-WDS10-TH-O
 * IP-Webcam and/or Raspberry Pi camera
 
 

@@ -5,41 +5,42 @@ Python code for snom.io phone D375 that was shown at the CeBit 2016
 
 Scope of menu
 -------------
-* States of Homematic heater control (actual temperature, set temperature, valve state, battery state, mode)
-* States of Homematic plug (on/off, power, voltage, current, frequency)
+* States of **Homematic heater control** (actual temperature, set temperature, valve state, battery state, mode)
+* States of **Homematic plug** (on/off, power, voltage, current, frequency)
 * Switching of Homematic plug
-* State of Homematic window contact
-* HUE lamp switching
+* State of **Homematic window contact**
+* **HUE lamp** switching
 * Room overview
-* Show webcam pictures
-* Weather infos (currently: Berlin, since middle March is the Yahoo service not available)
-* RSS feed new (currently: www.heise.de)
-* State of Raspberry Pi (GPU temperature, flash size, RAM size)
+* Show **webcam pictures**
+* **Weather** infos (currently: Berlin, since middle March is the Yahoo service not available)
+* **RSS feed** news (currently: www.heise.de)
+* State of **Raspberry Pi** (GPU temperature, flash size, RAM size)
 
 
 Required hardware
 -----------------
 
-* snom io phone (recommend: snom D375)
-* Raspberry Pi (recommend: Raspberry Pi 2 B or Raspberry Pi 3 B)
-* Philips Hue bridge with 3 RGB lamps
-* Homematic Central Control Unit like CCU2 with:
+* **snom io phone** (recommend: snom D375)
+* **Raspberry Pi** (recommend: Raspberry Pi 2 B or Raspberry Pi 3 B)
+* **Philips Hue** bridge with 3 RGB lamps
+* **Homematic** Central Control Unit like CCU2 with:
  * Homematic Window Sensor like HM-Sec-SCo)
  * Homematic Radiator Thermostat (HM-CC-RT-DN)
  * Homematic Switch Actuator with power metering (HM-ES-PWSw1-Pl)
  * Homematic Temperature/Humidity Sensor like HM-WDS10-TH-O
-* IP-Webcam and/or Raspberry Pi camera
+* **IP-Webcam** and/or Raspberry Pi camera
 
 
 Install
 -------
 
 **On a Raspberry Pi:**
-* Install image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ (The original Raspberry Pi from CeBit 2016 used the Image from https://kerberos.io/)
-* Run Raspberry Pi Configuration Tool
+* Install the image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ (The original Raspberry Pi from CeBit 2016 used the Image from https://kerberos.io/)
+* Run the Raspberry Pi Configuration Tool:
 ```
 sudo raspi-config 
 ```
+* Go to this points:
  * "Expand Filesystem"
  * "Change User Password"
  * "Internationalisation Options" ==> "Change Timezone"
@@ -53,11 +54,13 @@ sudo apt-get update
 sudo apt-get install lighttpd
 ```
 * Download icons: 
- * Download the openHAB "Runtime core" (http://www.openhab.org/getting-started/downloads.html)
+ * Download the openHAB "Runtime core" from http://www.openhab.org/getting-started/downloads.html
  * Unpack the file *distribution-1.8.2-runtime.zip*
- * Copy the PNG files from openHAB Runtime directory *webapps\images\* to directory */var/www/html/icons/* 
+ * Copy the PNG files from openHAB Runtime directory *webapps/images/* to directory */var/www/html/icons/* 
 * Install Git:
+```
 sudo apt-get install git  
+```
 * Copy the files from the repository to the home directory:
 ```
 git clone https://github.com/anthal/snom_smarthome
@@ -82,13 +85,13 @@ Configuration
 **On a Raspberry Pi:**
 
 * Go in directory */home/pi/snom_smarthome/CeBit2016*
-* Set execute bits:
+* Set the execute bits:
 ```
 chmod +x *.py
 chmod +x *.sh
 ```
 * Adapt in *conf.py*:
- * **server_ip** to the IP address of your Raspberry Pi
+ * **server_ip** to the IP address of your Raspberry Pi:
 ```
 server_ip = '172.20.4.117'
 ```
@@ -105,7 +108,7 @@ config['hue_ip'] = '172.20.4.113'
 config['cam1_url'] = 'http://admin:admin@172.20.4.111/tmpfs/auto.jpg'
 config['cam2_url'] = 'http://admin:admin@172.20.4.112/tmpfs/auto.jpg'
 ```
- * Adapt the Homematic addresses to the addresses of your Homematic devices:
+ * Change the addresses to your Homematic devices:
 ```
 ########################### Homematic ###########################
 # Sockets:
@@ -122,11 +125,11 @@ config['addr_wz_window1'] = 'MEQ4484674'
 ```
 * Get new datas from RSS feed:
 ```
-./get_rss.py
+python get_rss.py
 ```
 * Start main script:
 ```
-./main
+python main
 ```
 * Press the configuration key on the Philips Hue Bridge
 * Crontab (crontab -e):
@@ -142,7 +145,10 @@ config['addr_wz_window1'] = 'MEQ4484674'
 **On snom phone:**
 
  * WEB GUI: "Function Keys" -key like **SNOM/CLOUD** / Type: "Action URL": "[http://IP_addr_of_Rasperry_Pi]:8083"
- 
+ * Setting on snom phone:
+```
+dkey_snom=url http://172.20.4.4:8083/
+```
 
 Using
 ----- 

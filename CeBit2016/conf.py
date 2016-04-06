@@ -30,6 +30,12 @@ def config():
     ########################### RSS ###########################
     config['rss_file'] = "/home/pi/snom_smarthome/CeBit2016/feed_liste.txt"
     
+    ########################### Weather ###########################
+    # Get key from http://openweathermap.org/appid
+    config['my_owm_api_key'] = '11111111111111111111111111111'
+    config['city'] = 'Berlin,ger'
+    # config['city'] = 'Milan,it'
+    # config['city'] = 'London,uk'
     
     ####################### Do Not Touch ! #######################
     config['base_url'] = "http://" + server_ip + ":%s/" % config['port']

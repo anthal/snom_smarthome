@@ -12,9 +12,10 @@ Scope of menu
 * **HUE lamp** switching
 * Room overview
 * Show **webcam pictures**
-* **Weather** infos (currently: Berlin, since middle March is the Yahoo service not available)
+* **Weather** infos (currently: Berlin)
 * **RSS feed** news (currently: www.heise.de)
 * State of **Raspberry Pi** (GPU temperature, flash size, RAM size)
+* The strings in the menu are in german / Deutsch! 
 
 
 Required hardware
@@ -71,11 +72,12 @@ sudo apt-get install python-pip
 ```
 * Install miscellaneous Python packages:
 ```
-  sudo apt-get install python-dev  
-  sudo pip install simplejson
-  sudo pip install phue
-  sudo pip install psutil
-  sudo pip install feedparser
+sudo apt-get install python-dev  
+sudo pip install simplejson
+sudo pip install phue
+sudo pip install psutil
+sudo pip install feedparser
+sudo pip install pyowm
 ```
  
  
@@ -108,6 +110,14 @@ config['hue_ip'] = '172.20.4.113'
 config['cam1_url'] = 'http://admin:admin@172.20.4.111/tmpfs/auto.jpg'
 config['cam2_url'] = 'http://admin:admin@172.20.4.112/tmpfs/auto.jpg'
 ```
+ * **my_owm_api_key** get key from http://openweathermap.org/appid:
+```
+config['my_owm_api_key'] = '11111111111111111111111111111'
+```
+ * **city** the city for weather values:
+```
+config['city'] = 'Berlin,ger'
+```
  * Change the addresses to your Homematic devices:
 ```
 ########################### Homematic ###########################
@@ -133,12 +143,9 @@ python main
 ```
 * Press the configuration key on the Philips Hue Bridge
 * Crontab (crontab -e):
- * You can use the script *start_main.sh* for start per crontab:
+ * You can use the script *start_main.sh* for start per crontab and the script *get_rss.py* for update the RSS feed per crontab:
 ```
 * * * * * /home/pi/snom_smarthome/CeBit2016/start_main.sh
-```
- * You can use the script *get_rss.py* for update the RSS feed per crontab:
-```
 0 * * * * /home/pi/snom_smarthome/CeBit2016/get_rss.py
 ```
 

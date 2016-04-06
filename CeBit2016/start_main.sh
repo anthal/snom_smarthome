@@ -4,6 +4,6 @@ echo "exist main.py: $exist1"
 if [ $exist1 -lt 3 ]
 then
   echo "Neustart main.py"
-  sudo /root/python/snom/CeBit.new/main.py > /root/python/snom/CeBit.new/switch.log &
+  sudo /home/pi/snom_smarthome/CeBit2016/main.py > /home/pi/snom_smarthome/CeBit2016/switch.log &
 fi
 

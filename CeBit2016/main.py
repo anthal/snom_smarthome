@@ -731,7 +731,8 @@ class Snom:
         except:
             print("Dateizugriff fehlgeschlagen!")
             # return SnomXML.SnomIPPhoneText("Dateizugriff fehlgeschlagen!", "ERROR", prompt)
-            sys.exit(0)
+            # sys.exit(0)
+            return 1
         itemlist = pickle.load(fobj)    
         fobj.close()    
         # print itemlist

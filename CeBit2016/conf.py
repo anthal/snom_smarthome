@@ -18,7 +18,7 @@ def config():
     ## D375 for Alarm Pictures:
     phone_ip = '172.20.10.202'
     
-    ## Homematic Centrale CCU2:
+    ## Homematic CCU2:
     homematic_ip = '172.20.4.110'
     
     ## Philips Hue:
@@ -28,7 +28,7 @@ def config():
     config['cam2_url'] = 'http://admin:admin@172.20.4.112/tmpfs/auto.jpg'
 
     ########################### RSS ###########################
-    config['rss_file'] = "/root/python/snom/CeBit/feed_liste.txt"
+    config['rss_file'] = "/home/pi/snom_smarthome/CeBit2016/feed_liste.txt"
     
     
     ####################### Do Not Touch ! #######################
@@ -39,7 +39,7 @@ def config():
     config['capture_url'] = "http://" + server_ip + "/capture/"
     
     # Pfad zum Lighttpd-Webserver unter Arch-Linux: /srv/http/icons/
-    config['icons_url'] = "http://" + server_ip + ":81/icons/"
+    config['icons_url'] = "http://" + server_ip + ":80/icons/"
     
     config['phone_url'] = "http://" + phone_ip + "/"
     config['homematic_url'] = "http://" + homematic_ip

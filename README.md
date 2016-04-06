@@ -167,7 +167,7 @@ action_connected_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/2
 ```
 
 **HUE lamps** 
-* URL für HUE Lampen (ohne Menü): http://<IP Raspberry Pi>:8083/hue/<channel>/<color>
+* URL für HUE Lampen (ohne Menü): http://[IP Raspberry Pi]:8083/hue/[channel]/[color]
  * Channel: 1 – 3 (lamp 1 (WZ), 2 (AZ), 3 (SZ) ) 
  * Color: 0 – off, 1 – on, 2 – daylight, 3 – warmwhite, 4 – red, 5 – blue
 

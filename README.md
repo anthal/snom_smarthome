@@ -1,11 +1,11 @@
 Smart Home Menu for snom phones
 ===============================
 
-Python code for snom.io phone D375 that was shown at the CeBit 2016
+Python code for snom.io phone D375 that was shown at CeBit 2016
 
 Scope of menu
 -------------
-* States of **Homematic heater control** (actual temperature, set temperature, valve state, battery state, mode)
+* States of **Homematic heater control** (current temperature, set temperature, valve state, battery state, mode)
 * States of **Homematic plug** (on/off, power, voltage, current, frequency)
 * Switching of Homematic plug
 * State of **Homematic window contact**
@@ -13,7 +13,7 @@ Scope of menu
 * Room overview
 * Show **webcam pictures**
 * **Weather** infos (currently: Berlin)
-* **RSS feed** news (currently: www.heise.de)
+* Show **RSS news feed** (currently: www.heise.de)
 * State of **Raspberry Pi** (GPU temperature, flash size, RAM size)
 * The strings in the menu are in german / Deutsch! 
 
@@ -32,8 +32,8 @@ Required hardware
 * **IP-Webcam** and/or Raspberry Pi camera
 
 
-Install
--------
+Installation
+------------
 
 **On a Raspberry Pi:**
 * Install the image with "RASPBIAN JESSIE LITE" from https://www.raspberrypi.org/downloads/raspbian/ (The original Raspberry Pi from CeBit 2016 used the Image from https://kerberos.io/)
@@ -125,15 +125,15 @@ config['city'] = 'Berlin,ger'
 config['addr_wz_socket1'] = 'LEQ4272335'
 config['addr_az_socket1'] = 'LEQ4272349'
 config['addr_sz_socket1'] = 'LEQ4272278'
-# Heizungssteller:
+# Heizungssteller (Thermostat):
 config['addr_wz_heating1'] = 'MEQ4797228'
 config['addr_sz_heating1'] = 'MEQ4797228'
-# Temp./ Feuchte Sensor:
+# Temp./ Feuchte Sensor (Temp./ Humidity Sensor):
 config['addr_az_sensor1'] = 'MEQ4202864'
-# Fensterkontakt:
+# Fensterkontakt (Window Sensor):
 config['addr_wz_window1'] = 'MEQ4484674'
 ```
-* Get new datas from RSS feed:
+* Get new data from RSS feed:
 ```
 python get_rss.py
 ```
@@ -143,7 +143,7 @@ python main
 ```
 * Press the configuration key on the Philips Hue Bridge
 * Crontab (crontab -e):
- * You can use the script *start_main.sh* for start per crontab and the script *get_rss.py* for update the RSS feed per crontab:
+ * You can use the script *start_main.sh* for start per crontab and the script *get_rss.py* to update the RSS feed per crontab:
 ```
 * * * * * /home/pi/snom_smarthome/CeBit2016/start_main.sh
 0 * * * * /home/pi/snom_smarthome/CeBit2016/get_rss.py
@@ -162,7 +162,6 @@ Using
 
 * Press the configured key of the snom phone like **SNOM/CLOUD**
 * Use the keys **UP** and **DOWN** to navigate to the menu
-* The menu **Wetter** used a Yahoo service, this service is at middle of March 2016 out of order! 
 
 
 

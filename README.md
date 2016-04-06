@@ -15,6 +15,7 @@ Scope of menu
 * **Weather** infos (currently: Berlin)
 * Show **RSS news feed** (currently: www.heise.de)
 * State of **Raspberry Pi** (GPU temperature, flash size, RAM size)
+* Show phone states per color of HUE lamps (per Action URL)
 * The strings in the menu are in german / Deutsch! 
 
 
@@ -151,11 +152,25 @@ python main
 
 **On snom phone:**
 
- * WEB GUI: "Function Keys" -key like **SNOM/CLOUD** / Type: "Action URL": "[http://IP_addr_of_Rasperry_Pi]:8083"
- * Setting on snom phone:
+* WEB GUI: "Function Keys" -key like **SNOM/CLOUD** / Type: "Action URL": "[http://IP_addr_of_Rasperry_Pi]:8083"
+* Setting on snom phone:
 ```
 dkey_snom=url http://172.20.4.4:8083/
 ```
+* Action URL Settings on the snom phones:
+```
+action_incoming_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/4
+action_offhook_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/2
+action_onhook_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/3
+action_missed_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/5
+action_connected_url=http://IP_addr_of_Raspberry_Pi:8083/hue/1/2
+```
+
+**HUE lamps** 
+* URL für HUE Lampen (ohne Menü): http://<IP Raspberry Pi>:8083/hue/<channel>/<color>
+ * Channel: 1 – 3 (lamp 1 (WZ), 2 (AZ), 3 (SZ) ) 
+ * Color: 0 – off, 1 – on, 2 – daylight, 3 – warmwhite, 4 – red, 5 – blue
+
 
 Using
 ----- 

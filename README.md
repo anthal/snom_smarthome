@@ -16,7 +16,8 @@ Scope of menu
 * Show **RSS news feed** (currently: www.heise.de)
 * State of **Raspberry Pi** (GPU temperature, flash size, RAM size)
 * Show phone states per color of HUE lamps (per Action URL)
-* The strings in the menu are in german / Deutsch! 
+* Display the lamp and switch state over the function key LED's 
+* The strings in german / Deutsch! 
 
 
 Required hardware

@@ -180,5 +180,10 @@ Using
 * Use the keys **UP** and **DOWN** to navigate to the menu
 
 
+Problem solving
+---------------
+
+* If the XML menus no longer respond properly in the phone or wrong menu items selects, then reboot phone.
+* If the HUE lights do not function, press on the Hue bridge the large central button
 
 

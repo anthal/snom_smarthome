@@ -35,6 +35,7 @@ import SocketServer
 import simplejson
 from urllib import unquote
 from phue import Bridge
+import pyowm
 
 ## snom libs:
 import conf
@@ -42,7 +43,6 @@ import commands
 from snom import SnomXML
 from http import ThreadingServer
 import rapi_system
-import pyowm
 import RPi.GPIO as GPIO
 
 # pacman -S python2-pip
@@ -869,6 +869,8 @@ class Snom:
     #
     # http://stackoverflow.com/questions/1474489/python-weather-api
     # http://openweathermap.org/api
+    # http://pyowm.readthedocs.org/en/latest/pyowm.webapi25.html#module-pyowm.webapi25.weather
+    # https://github.com/csparpa/pyowm/wiki/Usage-examples
     #########################################################################
     def wetter(self):
         MenuItems=[]
@@ -884,8 +886,6 @@ class Snom:
         # print(w)                    # <Weather - reference time=2013-12-18 09:20, 
                                       # status=Clouds>
         # Weather details
-        w.get_wind()                  # {'speed': 4.6, 'deg': 330}
-        w.get_humidity()              # 87
         temp = w.get_temperature('celsius')  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
         
         # Temperatur einlesen
@@ -896,15 +896,23 @@ class Snom:
         # Weather details
         wind = w.get_wind()                  # {'speed': 4.6, 'deg': 330}
         wind_speed = wind['speed']           # {'speed': 4.6, 'deg': 330}
-        wind_deg = wind['deg']               # {'speed': 4.6, 'deg': 330}
+        # wind_deg = wind['deg']               # {'speed': 4.6, 'deg': 330}
         humidity = w.get_humidity()          # 87
         
-        print("Temp.: " + str(Temperatur))
-        print("Temp_min: " + str(Temp_min))
-        print("Temp_max: " + str(Temp_max))
+        # Query for daily weather forecast for the next 14 days over London
+        # fc = owm.daily_forecast(config['city'], limit=6)
+        fc = owm.three_hours_forecast(config['city'])
+        f = fc.get_forecast()
+        # for weather in f:
+            # print (weather.get_reference_time('iso'),weather.get_status())
+        
+        # print("Temp.: " + str(Temperatur))
+        # print("Temp_min: " + str(Temp_min))
+        # print("Temp_max: " + str(Temp_max))
 
         # wetter_txt = "Wetter heute am " + wday2wtag(Wetter[0][0]) + ":<br/> Temp.: " + str(Temperatur) + u"°C<br/> Min.: " + str(Temp_min) + u"°C, Max.: " + str(Temp_max) + u"°C<br/>Wettersituation: " + Wetterlage + "<br/> Wetter morgen am " + wday2wtag(Wetter[1][0]) + ":<br/>Temp. Min: " + str(Wetter[1][2]) + u"°C, Max: " + str(Wetter[1][3]) + u"°C<br/>Wetter: " + str(Wetter[1][4])
-        wetter_txt = "Wetter heute:<br/> Temp.: " + str(Temperatur) + u"°C<br/> Min.: " + str(Temp_min) + u"°C <br/>Max.: " + str(Temp_max) + u"°C<br/>Wind: " + str(wind_speed) + " m/s " + str(wind_deg) + u"°<br/>Luftfeuchte: " + str(humidity) + "%<br/>"
+        # wetter_txt = "Wetter heute:<br/> Temp.: " + str(Temperatur) + u"°C<br/> Min.: " + str(Temp_min) + u"°C <br/>Max.: " + str(Temp_max) + u"°C<br/>Wind: " + str(wind_speed) + " m/s " + str(wind_deg) + u"°<br/>Luftfeuchte: " + str(humidity) + "%<br/>"
+        wetter_txt = "Wetter heute:<br/> Temp.: " + str(Temperatur) + u"°C<br/> Min.: " + str(Temp_min) + u"°C <br/>Max.: " + str(Temp_max) + u"°C<br/>Wind: " + str(wind_speed) + " m/s <br/>Luftfeuchte: " + str(humidity) + "%<br/>"
         wetter_string = u"Wetterbericht für " + config['city']
 
         # UTF-8 Encoding:

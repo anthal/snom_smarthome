@@ -17,12 +17,12 @@ def get_rss():
     fobj = open(config['rss_file'], "w")
     
     print "get_rss"
-    d = feedparser.parse('http://heise.de.feedsportal.com/c/35207/f/653902/index.rss')
+    d = feedparser.parse('http://www.heise.de/newsticker/heise-atom.xml')
     ## print all posts
     index = 0
     feed = []
     for post in d.entries:
-        # print post.title
+        print post.title
         
         # print post.description
         content = post.description.split("<br")

@@ -6,6 +6,7 @@ import feedparser
 import pickle
 import re
 import conf
+import os
 
 global config
 config=conf.config()
@@ -13,9 +14,8 @@ config=conf.config()
 #########################################################################
 # RSS
 #########################################################################
-def get_rss():
-    fobj = open(config['rss_file'], "w")
-    
+def get_rss(rss_file, rss_file_tmp):
+    fobj = open(rss_file_tmp, "w")
     print "get_rss"
     d = feedparser.parse('http://www.heise.de/newsticker/heise-atom.xml')
     ## print all posts
@@ -51,6 +51,7 @@ def get_rss():
     # To read it back:
     # itemlist = pickle.load(fobj)    
     fobj.close()
+    os.rename(rss_file_tmp, rss_file)
         
 #########################################################################
 # RSS
@@ -80,7 +81,7 @@ def read_liste():
 #########################################################################
 # MAIN
 #########################################################################
-get_rss()
+get_rss(config['rss_file'], config['rss_tmp_file'])
 # test_liste()
 # read_liste()
 
